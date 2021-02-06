@@ -8,13 +8,12 @@ go:
 
 branches:
   only:
-  - main
   - /^v*/
 
 script:
   - go test -v ./...
 
 after_success:
-  script:
-    - echo "build version:"
-    — echo $BUILD_VERSION
+  — go get github.com/mitchellh/gox
+  — gox -ldflags "-X main.version $TRAVIS_BRANCH -output "dist/bt_{{.OS}}_{{.Arch}}"
+  
