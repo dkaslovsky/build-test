@@ -13,3 +13,7 @@ branches:
 
 script:
   - go test -v ./...
+
+after_success:
+- echo "build version:"
+— echo $BUILD_VERSION
