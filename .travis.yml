@@ -1,0 +1,15 @@
+language: go
+
+env:
+  - GO111MODULE=on
+
+go:
+  - 1.15.x
+
+branches:
+  only:
+  - main
+  - /^v*/
+
+script:
+  - go test -v main.go main_test.go
